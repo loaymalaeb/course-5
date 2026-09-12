@@ -1,0 +1,31 @@
+#include <iostream>   // Include the iostream library for input/output operations
+using namespace std;  // Use the standard namespace to avoid using the "std::" prefix
+
+int readPositiveNumber(string message){
+  int number;
+  do{
+  cout<<message<<endl;
+  cin>>number;
+}while(number<=0);
+return number;
+}
+
+bool isPerfectNumber(int number){
+    int sum=0;
+    for(int i=1;i<number;i++){
+     if(number%i==0)
+     sum+=i;
+    }
+    return number==sum;
+}
+void printPerfectNumbersFrom1ToN(int n){
+    for(int i=1;i<=n;i++){
+    if(isPerfectNumber(i))
+    cout<<i<<" is a perfect number"<<endl;
+    }
+}
+int main()
+{ 
+    printPerfectNumbersFrom1ToN(readPositiveNumber("Enter a positive number"));
+    return 0;
+}
