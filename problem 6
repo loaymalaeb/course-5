@@ -1,0 +1,29 @@
+#include <iostream>   // Include the iostream library for input/output operations
+using namespace std;  // Use the standard namespace to avoid using the "std::" prefix
+#include <string>
+int readPositiveNumber(string message){
+  int number;
+  do{
+  cout<<message<<endl;
+  cin>>number;
+}while(number<=0);
+return number;
+}
+
+
+int sumDigitNumber(int number){
+    int sum=0;
+    while(number>0){
+        sum+=(number%10);
+        number/=10;
+    }
+    return sum;
+}
+void printResult(int number){
+    cout<<"Sum of digits is "<<sumDigitNumber(number)<<endl;
+}
+int main()
+{   printResult(readPositiveNumber("enter a positve number"));
+    
+    return 0;
+}
