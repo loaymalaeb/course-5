@@ -1,0 +1,38 @@
+#include <iostream>   // Include the iostream library for input/output operations
+using namespace std;  // Use the standard namespace to avoid using the "std::" prefix
+#include <string>
+int readPositiveNumber(string message){
+  int number;
+  do{
+  cout<<message<<endl;
+  cin>>number;
+}while(number<=0);
+return number;
+}
+
+int getReversedNumber(int number){
+    string reversed="";
+    int remainder=0;
+    while(number>0){
+        remainder=number%10;
+        reversed+=to_string(remainder);
+        number/=10;
+    }
+    return stoi(reversed);
+}
+
+bool isPalindromeNumber(int number){
+    return number==getReversedNumber(number);
+}
+
+
+int main()
+{   
+    int number=readPositiveNumber("Enter the number");
+    if(isPalindromeNumber(number))
+    cout<<"Yes, it is a Palindrome number"<<endl;
+    else
+    cout<<"No, it is not a Palindrome number"<<endl;
+    return 0;
+    
+}
