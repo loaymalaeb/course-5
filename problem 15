@@ -1,0 +1,30 @@
+#include <iostream>   // Include the iostream library for input/output operations
+using namespace std;  // Use the standard namespace to avoid using the "std::" prefix
+#include <string>
+int readPositiveNumber(string message){
+  int number;
+  do{
+  cout<<message<<endl;
+  cin>>number;
+}while(number<=0);
+return number;
+}
+
+void PrintLetterPattern(int number)
+{
+    for (int i = 65; i <= 65 + number - 1; i++)
+    {
+        for (int j = 65; j <= i; j++)
+        {
+            cout << char(i);
+        }
+        cout << endl;
+    }
+}
+
+int main()
+{   
+    PrintLetterPattern(readPositiveNumber("Enter a number"));
+    return 0;
+    
+}
