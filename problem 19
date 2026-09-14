@@ -1,0 +1,17 @@
+#include <iostream>   // Include the iostream library for input/output operations
+using namespace std;  // Use the standard namespace to avoid using the "std::" prefix
+#include <string>
+#include <cstdlib>
+
+int randomNumber(int from,int to){
+    int randNum = rand() % (to - from + 1) + from;
+    return randNum;
+}
+
+int main()
+{   srand((unsigned)time(NULL));
+    cout<<randomNumber(20,30)<<endl;
+    cout<<randomNumber(10,20)<<endl;
+    return 0;
+    
+}
