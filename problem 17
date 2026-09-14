@@ -1,0 +1,49 @@
+#include <iostream>   // Include the iostream library for input/output operations
+using namespace std;  // Use the standard namespace to avoid using the "std::" prefix
+#include <string>
+#include <cctype>
+
+string read3LetterPassword(string message){
+    string password;
+    do{
+        cout<<"Please enter a 3-Letter password (all capital)"<<endl;
+        cin>>password;
+    }while(
+    password.length()!=3  
+    || !isupper(password[0])
+    || !isupper(password[1])
+    || !isupper(password[2])
+ );
+    return password;
+}
+
+bool guess3LetterPassowrd(string passowrd){
+    int trial=1;
+    string word="";
+    for(char i='A';i<='Z';i++){
+        for(char j='A';j<='Z';j++){
+            for(char k='A';k<='Z';k++){
+                word=word+i;
+                word=word+j;
+                word=word+k;
+                cout<<"Trial ["<<trial<<"]: "<<word<<endl;
+                if(word==passowrd){
+                   cout<<"Password is "<<passowrd<<endl;
+                   cout<<"Found after "<<trial<<" Trial(s)"<<endl;
+                   return true;
+                }
+                trial++;
+                word="";
+
+            }
+        }
+    }
+    return false;
+}
+    
+int main()
+{   
+    guess3LetterPassowrd(read3LetterPassword("enter a 3-Letter password"));
+    return 0;
+    
+}
