@@ -1,0 +1,42 @@
+#include <iostream>   // Include the iostream library for input/output operations
+using namespace std;  // Use the standard namespace to avoid using the "std::" prefix
+#include <string>
+#include <cstdlib>
+
+enum enLetterCharachterDigit{ smallLetter=1, capitalLetter=2, specialCharacter=3, digit=4 };
+
+int randomNumber(int from,int to){
+    int randNum = rand() % (to - from + 1) + from;
+    return randNum;
+}
+
+char getLetter(enLetterCharachterDigit type){
+    
+    switch(type){
+        case enLetterCharachterDigit::smallLetter:
+        return (char)randomNumber(97,122);
+        break;
+        case enLetterCharachterDigit::capitalLetter:
+        return (char)randomNumber(65,90);
+        break;
+        case enLetterCharachterDigit::specialCharacter:
+        return (char)randomNumber(33,47);
+        break;
+        case enLetterCharachterDigit::digit:
+        return (char)randomNumber(48,57);
+        break;
+
+    }
+    return '\0';
+}
+
+int main()
+{   srand((unsigned)time(NULL));
+    
+    cout<<getLetter(enLetterCharachterDigit::capitalLetter)<<endl;
+    cout<<getLetter(enLetterCharachterDigit::smallLetter)<<endl;
+    cout<<getLetter(enLetterCharachterDigit::specialCharacter)<<endl;
+    cout<<getLetter(enLetterCharachterDigit::digit)<<endl;
+    return 0;
+    
+}
