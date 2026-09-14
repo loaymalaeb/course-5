@@ -1,0 +1,20 @@
+#include <iostream>   // Include the iostream library for input/output operations
+using namespace std;  // Use the standard namespace to avoid using the "std::" prefix
+#include <string>
+
+void printAAAToZZZ(){
+    for(char i='A';i<='Z';i++){
+        for(char j='A';j<='Z';j++){
+            for(char k='A';k<='Z';k++){
+                cout<<i<<j<<k<<endl;
+            }
+        }
+    }
+}
+    
+int main()
+{   
+    printAAAToZZZ();
+    return 0;
+    
+}
