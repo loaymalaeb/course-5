@@ -10,7 +10,7 @@ int randomNumber(int from,int to){
     return randNum;
 }
 
-char getLetter(enLetterCharachterDigit type){
+char getRandomCharachter(enLetterCharachterDigit type){
     
     switch(type){
         case enLetterCharachterDigit::smallLetter:
@@ -33,10 +33,10 @@ char getLetter(enLetterCharachterDigit type){
 int main()
 {   srand((unsigned)time(NULL));
     
-    cout<<getLetter(enLetterCharachterDigit::capitalLetter)<<endl;
-    cout<<getLetter(enLetterCharachterDigit::smallLetter)<<endl;
-    cout<<getLetter(enLetterCharachterDigit::specialCharacter)<<endl;
-    cout<<getLetter(enLetterCharachterDigit::digit)<<endl;
+    cout<<getRandomCharachter(enLetterCharachterDigit::capitalLetter)<<endl;
+    cout<<getRandomCharachter(enLetterCharachterDigit::smallLetter)<<endl;
+    cout<<getRandomCharachter(enLetterCharachterDigit::specialCharacter)<<endl;
+    cout<<getRandomCharachter(enLetterCharachterDigit::digit)<<endl;
     return 0;
     
 }
