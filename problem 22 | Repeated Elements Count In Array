@@ -1,0 +1,57 @@
+#include <iostream>   // Include the iostream library for input/output operations
+using namespace std;  // Use the standard namespace to avoid using the "std::" prefix
+#include <string>
+#include <cstdlib>
+
+
+int readPositiveNumber(string message){
+  int number;
+  do{
+  cout<<message<<endl;
+  cin>>number;
+}while(number<=0);
+return number;
+}
+
+void readArrayElements(int arr[],int &size){
+
+    size=readPositiveNumber("Enter the number of elements");
+    cout<<"Enter array elements:"<<endl;
+    for(int i=0;i<size;i++){
+    cout<<"Element ["<<i+1<<"]: ";
+    cin>>arr[i];
+    }
+}
+
+void printArrayElements(int arr[],int size){
+    cout<<"Original array: ";
+    for(int i=0;i<size;i++){
+        cout<<arr[i]<<" ";
+    }
+    cout<<endl;
+}
+
+int timesRepeated(int arr[],int size,int number){
+    int count=0;
+    for(int i=0;i<size;i++){
+        if(arr[i]==number)
+        count++;
+    }
+    return count;
+}
+
+int main()
+{   int size;
+    int arr[100];
+    readArrayElements(arr,size);
+
+    int numberToCheck;
+    cout<<"Enter the number you want to check"<<endl;
+    cin>>numberToCheck;
+
+    printArrayElements(arr,size);
+
+    cout<<numberToCheck<<" is repeated "<<timesRepeated(arr,size,numberToCheck)<<" time(s)"<<endl;
+    return 0;
+    
+}
