@@ -54,12 +54,7 @@ void copyOnlyPrimeNumbers(int arr1[], int arr2[], int size,int &size2)
     }
     size2=count;
 }
-void printPrimeNumber(int arr[],int size){
-    for(int i=0;i<size;i++){
-    if(checkPrime(i)==enPrimeOrNotPtime::prime)
-    cout<<arr[i]<<endl;
-  }
-}
+
 int main()
 {   srand((unsigned)time(NULL));
     int size;
