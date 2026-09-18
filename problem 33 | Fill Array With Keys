@@ -1,0 +1,80 @@
+#include <iostream>   // Include the iostream library for input/output operations
+using namespace std;  // Use the standard namespace to avoid using the "std::" prefix
+#include <string>
+#include <cstdlib>
+
+enum enCharType{ smallLetter=1, capitalLetter=2, specialCharacter=3, digit=4 };
+int readPositiveNumber(string message){
+  int number;
+  do{
+  cout<<message<<endl;
+  cin>>number;
+}while(number<=0);
+return number;
+}
+
+int randomNumber(int from,int to){
+    int randNum = rand() % (to - from + 1) + from;
+    return randNum;
+}
+
+void printStringArrayElements(string arr[],int size){
+    
+    for(int i=0;i<size;i++){
+        cout<<"Array["<<i<<"]: "<<arr[i]<<endl;
+    }
+    
+}
+
+char getRandomCharachter(enCharType type){
+    
+    switch(type){
+        case enCharType::smallLetter:
+        return (char)randomNumber(97,122);
+        break;
+        case enCharType::capitalLetter:
+        return (char)randomNumber(65,90);
+        break;
+        case enCharType::specialCharacter:
+        return (char)randomNumber(33,47);
+        break;
+        case enCharType::digit:
+        return (char)randomNumber(48,57);
+        break;
+
+    }
+    return '\0';
+}
+
+string generateWord(enCharType charType,int length){
+    string word="";
+    for(int i=1;i<=length;i++){
+        word=word+getRandomCharachter(charType);
+    }
+    return word;
+}
+
+string generateKey(){
+    string key;
+    key=generateWord(enCharType::capitalLetter,4)+"-";
+    key=key+generateWord(enCharType::capitalLetter,4)+"-";
+    key=key+generateWord(enCharType::capitalLetter,4)+"-";
+    key=key+generateWord(enCharType::capitalLetter,4);
+    return key;
+}
+
+void fillArrayWithKeys(string arr[],int size){
+   for(int i=0;i<size;i++){
+    arr[i]=generateKey();
+   }
+}
+int main()
+{   srand((unsigned)time(NULL));
+    string arr[100];
+    int size=readPositiveNumber("How many keys do you want to generate ?");
+    fillArrayWithKeys(arr,size);
+    printStringArrayElements(arr,size);
+
+    return 0;
+    
+}
