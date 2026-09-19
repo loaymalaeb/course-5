@@ -10,9 +10,6 @@ float readNumber(){
     cin>>number;
     return number;
 }
-float getFractionPart(float number){
-    return number-(int)number;
-}
 int myFloor(float number){
     
     if(number>=0)
