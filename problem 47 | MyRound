@@ -1,0 +1,38 @@
+#include <iostream>   // Include the iostream library for input/output operations
+using namespace std;  // Use the standard namespace to avoid using the "std::" prefix
+#include <string>
+#include <cstdlib>
+#include <cmath>
+
+float readNumber(){
+    float number;
+    cout<<"Enter a float number"<<endl;
+    cin>>number;
+    return number;
+}
+float getFractionPart(float number){
+    return number-(int)number;
+}
+int myRound(float number){
+    int intPart=(int)number;
+    float fractionPart=getFractionPart(number);
+    if(abs(fractionPart)>=0.5){
+        if(number>0)
+        return ++intPart;
+        else
+        return --intPart;
+    }
+    else
+    return intPart;
+
+}
+int main()
+{
+    
+    float number=readNumber();
+    cout<<"My round result: "<<myRound(number)<<endl;
+    cout << "C++ Round Result: " << round(number) << endl;
+    
+    return 0;
+    
+}
