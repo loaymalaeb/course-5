@@ -1,0 +1,47 @@
+#include <iostream>   // Include the iostream library for input/output operations
+using namespace std;  // Use the standard namespace to avoid using the "std::" prefix
+#include <string>
+#include <cstdlib>
+
+int readNumber(){
+  int number;
+  cout<<"Please enter number"<<endl;
+  cin>>number;
+  return number;
+}
+
+void addArrayElement(int arr[],int &size,int number){
+    arr[size]=number;
+    size++;
+}
+
+void printArrayElements(int arr[],int size){
+    
+    for(int i=0;i<size;i++){
+        cout<<arr[i]<<" ";
+    }
+    cout<<endl;
+}
+
+void inputUserNumbersInArray(int arr[100],int &size){
+    bool addMore;
+  do{
+    addArrayElement(arr,size,readNumber());
+    cout<<"Do you want to add more numbers? [0]:No?,[1]Yes? ";
+    cin>>addMore;
+  }while(addMore);
+}
+
+
+int main()
+{   srand((unsigned)time(NULL));
+    
+    int arr[100];
+    int size=0;
+    inputUserNumbersInArray(arr,size);
+    cout<<"Array length: "<<size<<endl;
+    cout<<"Array elements: ";
+    printArrayElements(arr,size);
+    return 0;
+    
+}
