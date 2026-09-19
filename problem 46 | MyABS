@@ -1,0 +1,27 @@
+#include <iostream>   // Include the iostream library for input/output operations
+using namespace std;  // Use the standard namespace to avoid using the "std::" prefix
+#include <string>
+#include <cstdlib>
+
+float readNumber(){
+    float number;
+    cout<<"Enter a number"<<endl;
+    cin>>number;
+    return number;
+}
+float myABS(float number){
+    if(number>=0)
+    return number;
+    else
+    return -1*number;
+}
+int main()
+{
+    
+    float number=readNumber();
+    cout<<"My abs result: "<<myABS(number)<<endl;
+    cout<<"C++ abs result: "<<abs(number)<<endl;
+    
+    return 0;
+    
+}
