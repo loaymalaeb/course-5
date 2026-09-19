@@ -1,0 +1,66 @@
+using namespace std;  // Use the standard namespace to avoid using the "std::" prefix
+#include <string>
+#include <cstdlib>
+
+int readPositiveNumber(string message){
+  int number;
+  do{
+  cout<<message<<endl;
+  cin>>number;
+}while(number<=0);
+return number;
+}
+
+int randomNumber(int from,int to){
+    int randNum = rand() % (to - from + 1) + from;
+    return randNum;
+}
+
+void fillArrayWithRandomNumbers(int arr[],int &size){
+
+    size=readPositiveNumber("Enter the number of elements");
+    for(int i=0;i<size;i++){
+    arr[i]=randomNumber(1,100);
+    }
+}
+
+void printArrayElements(int arr[],int size){
+    
+    for(int i=0;i<size;i++){
+        cout<<arr[i]<<" ";
+    }
+    cout<<endl;
+}
+
+void addArrayElement(int arr[],int &size,int number){
+    arr[size]=number;
+    size++;
+}
+void copyOddNumbers(int arr1[], int arr2[], int size,int &size2)
+{
+    for (int i = 0; i < size; i++)
+    {
+        if(arr1[i]%2!=0)
+        addArrayElement(arr2,size2,arr1[i]);
+    }
+}
+
+
+
+
+int main()
+{   srand((unsigned)time(NULL));
+    
+    int arr[100];
+    int arr2[100];
+    int size;
+    int size2=0;
+    fillArrayWithRandomNumbers(arr,size);
+    copyOddNumbers(arr,arr2,size,size2);
+    cout<<"Array 1 elemnts: "<<endl;
+    printArrayElements(arr,size);
+    cout<<"Array 2 odd numbers: "<<endl;
+    printArrayElements(arr2,size2);
+    return 0;
+    
+}
