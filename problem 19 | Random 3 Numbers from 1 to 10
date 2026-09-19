@@ -10,8 +10,9 @@ int randomNumber(int from,int to){
 
 int main()
 {   srand((unsigned)time(NULL));
-    cout<<randomNumber(20,30)<<endl;
-    cout<<randomNumber(10,20)<<endl;
+    cout<<randomNumber(1,10)<<endl;
+    cout<<randomNumber(1,10)<<endl;
+    cout<<randomNumber(1,10)<<endl;
     return 0;
     
 }
