@@ -43,6 +43,7 @@ int countOddNumbersInArray(int arr[],int size){
 
 int main()
 {
+    srand((unsigned)time(NULL));
     int arr[100];
     int size;
     fillArrayWithRandomNumbers(arr,size);
