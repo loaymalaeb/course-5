@@ -1,0 +1,96 @@
+hile(number<=0 ||number>10);
+return number;
+}
+int numberOfRounds(){
+  int numberOfRounds;
+  numberOfRounds=readPositiveNumber("How many rounds 1 to 10 ?");
+  cout<<endl;
+  return numberOfRounds;
+}
+
+string showRoundWinner(enRoPaSc playerRoPaSc,enRoPaSc computerRoPaSc){
+  if(playerRoPaSc==enRoPaSc::paper &&computerRoPaSc==enRoPaSc::paper)
+  return "[No Winner]";
+  else if(playerRoPaSc==enRoPaSc::rock &&computerRoPaSc==enRoPaSc::rock)
+  return "[No Winner]";
+  else if(playerRoPaSc==enRoPaSc::scissors &&computerRoPaSc==enRoPaSc::scissors)
+  return "[No Winner]";
+  else if(playerRoPaSc==enRoPaSc::paper &&computerRoPaSc==enRoPaSc::rock)
+  return "[Player1]";
+  else if(playerRoPaSc==enRoPaSc::paper &&computerRoPaSc==enRoPaSc::scissors)
+  return "[Computer]";
+  else if(playerRoPaSc==enRoPaSc::rock &&computerRoPaSc==enRoPaSc::paper)
+  return "[Computer]";
+  else if(playerRoPaSc==enRoPaSc::rock &&computerRoPaSc==enRoPaSc::scissors)
+  return "[Player1]";
+  else if(playerRoPaSc==enRoPaSc::scissors &&computerRoPaSc==enRoPaSc::rock)
+  return "[Computer]";
+  else if(playerRoPaSc==enRoPaSc::scissors &&computerRoPaSc==enRoPaSc::paper)
+  return "[Player1]";
+}
+void printRoundWinner(int i,enRoPaSc playerRoPaSc,enRoPaSc computerRoPaSc){
+ cout<<"________________ Round ["<<i<<"] ______________"<<endl<<endl;
+ cout<<"Player1 Choice :  "<<getChoiceName(playerRoPaSc)<<endl;
+ cout<<"Computer Choice: "<<getChoiceName(computerRoPaSc)<<endl;
+ cout<<"Round Winner  : "<<showRoundWinner(playerRoPaSc,computerRoPaSc)<<endl;
+ cout<<"_________________________________________"<<endl<<endl;
+}
+
+string showFinalWinner(int player1Wins, int computerWins, int draws)
+{
+    if (player1Wins > computerWins && player1Wins >= draws)
+        return "Player1";
+
+    else if (computerWins > player1Wins && computerWins >= draws)
+        return "Computer";
+
+    else
+        return "No Winner";
+}
+void printEndGame(){
+    cout<<"\t \t \t \t __________________________________________________________________________"<<endl<<endl;
+    cout<<"\t \t \t \t \t \t \t \t +++ G A M E  O V E R +++"<<endl;
+    cout<<"\t \t \t \t __________________________________________________________________________"<<endl<<endl;
+}
+void printGameResult(int rounds,int player1Wins,int computerWins,int draws){
+  cout<<" \t \t \t \t ___________________________________ [Game Results] _______________________"<<endl<<endl;
+  cout<<" \t \t \t \t Game Rounds        : "<<rounds<<endl;
+  cout<<" \t \t \t \t Player1 won times  : "<<player1Wins<<endl;
+  cout<<" \t \t \t \t Computer won times : "<<computerWins<<endl;
+  cout<<" \t \t \t \t Draw times         : "<<draws<<endl;
+  cout<<" \t \t \t \t Final Winner       : "<<showFinalWinner(player1Wins,computerWins,draws)<<endl;
+  cout<<" \t \t \t \t __________________________________________________________________________"<<endl;
+}
+void startGame(){
+  enRoPaSc playerRoPaSc;
+  enRoPaSc computerRoPaSc;
+  int rounds=numberOfRounds();
+  int player1Wins = 0;
+  int computerWins = 0;
+  int draws = 0;
+  for(int i=1;i<=rounds;i++){
+    cout<<"Round ["<<i<<"] begins: "<<endl;
+    cout<<endl;
+    playerRoPaSc=readPlayerChoice(playerRoPaSc);
+    computerRoPaSc=readComputerChoice(computerRoPaSc);
+    printRoundWinner(i,playerRoPaSc,computerRoPaSc);
+
+    string winner = showRoundWinner(playerRoPaSc, computerRoPaSc);
+
+    if (winner == "[Player1]")
+            player1Wins++;
+        else if (winner == "[Computer]")
+            computerWins++;
+        else
+            draws++;
+    
+  }
+  printEndGame();
+  printGameResult(rounds,player1Wins,computerWins,draws);
+}
+
+int main()
+{   srand((unsigned)time(NULL));
+startGame();
+    
+}
