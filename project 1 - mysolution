@@ -1,4 +1,47 @@
-hile(number<=0 ||number>10);
+#include <iostream>   // Include the iostream library for input/output operations
+using namespace std;  // Use the standard namespace to avoid using the "std::" prefix
+#include <string>
+enum enRoPaSc{rock=1,paper=2,scissors=3};
+string getChoiceName(enRoPaSc choice)
+{
+    switch (choice)
+    {
+        case rock:
+            return "Rock";
+
+        case paper:
+            return "Paper";
+
+        case scissors:
+            return "Scissors";
+
+        default:
+            return "Unknown";
+    }
+}
+int randomNumber(int from,int to){
+    int randNum = rand() % (to - from + 1) + from;
+    return randNum;
+}
+enRoPaSc readPlayerChoice(enRoPaSc playerRoPaSc){
+  cout<<"Your choice: [1]:Rock, [2]:Paper, [3]Scissors ?";
+    int playerChoice;
+    cin>>playerChoice;
+    cout<<endl;
+    playerRoPaSc=(enRoPaSc)playerChoice;
+    return playerRoPaSc;
+}
+enRoPaSc readComputerChoice(enRoPaSc computerRoPaSc){
+    int computerChoice=randomNumber(1,3);
+    computerRoPaSc=(enRoPaSc)computerChoice;
+    return computerRoPaSc;
+}
+int readPositiveNumber(string message){
+  int number;
+  do{
+  cout<<message<<endl;
+  cin>>number;
+}while(number<=0 ||number>10);
 return number;
 }
 int numberOfRounds(){
